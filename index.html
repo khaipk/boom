@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>New Phaser Game</title>
+
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+	
+    <script src="js/phaser.min.js"></script> 
+    <script src="js/phaser_addon.js"></script> 
+    <script src="js/preloader.js"></script> 
+    <script src="js/menuscene.js"></script> 
+    <script src="js/collectobj.js"></script> 
+    <script src="js/levels.js"></script> 
+    <script src="js/gamescene.js"></script> 
+    <script src="js/tutorial.js"></script> 
+</head>
+<body>
+
+    <script>
+	var config = {
+		type: Phaser.AUTO,
+		width: 765,
+		height: 675,
+		backgroundColor: '#006060',
+		parent: 'phaser-example',
+		physics: {
+				default: 'arcade',
+				arcade: {
+					gravity: {
+						y: 300
+					}
+					//,debug: true
+				}
+			},
+		scale: {
+			mode: Phaser.Scale.FIT,
+			autoCenter: Phaser.Scale.CENTER_BOTH
+		},
+		scene: [ Preloader, MainMenu, TutorScene, GameScene ]
+	};
+
+	var game = new Phaser.Game(config);
+
+	var player;
+	var enemies;
+	var cursors;
+	var platforms;
+	var gameitems;
+	var bombs;
+	var booms;
+	var score = 0;
+	var scoreText;
+	var timestamp;
+	var lasttime = 0;
+	var gamestate;
+	const GAME_STATE = {
+		MENU: 0,
+		NEWGAME: 1,
+		RUNNING: 2,
+		PAUSE: 3,
+		GAMEOVER: 4
+	};
+	var maxBoom =1;
+	var speed = 80;
+	var bombsize = 0;
+	const SIZE = 45;
+	var boos_speed = 60;
+	var keyA;
+
+    </script>
+
+</body>
+</html>
